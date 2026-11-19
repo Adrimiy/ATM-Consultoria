@@ -9,6 +9,9 @@ import {
   StyleSheet
 } from 'react-native';
 
+import Agendamento from './telas/Agendamento';
+import Orcamento from './telas/Orcamento';
+
 export default function App() {
 
   const [tela, setTela] = useState('Home');
@@ -79,6 +82,24 @@ export default function App() {
             require('./assets/Imagens/280406-entenda-como-uma-consultoria-pode-contribuir-na-tomada-de-decisao.jpg'),
             'Serviços'
           )}
+
+          <TouchableOpacity
+  style={styles.botaoAgendamento}
+  onPress={() => setTela('Agendamento')}
+>
+  <Text style={styles.botaoTexto}>
+    Agendar consultoria
+  </Text>
+</TouchableOpacity>
+
+<TouchableOpacity
+  style={styles.botaoAgendamento}
+  onPress={() => setTela('Orcamento')}
+>
+  <Text style={styles.botaoTexto}>
+    Solicitar orçamento
+  </Text>
+</TouchableOpacity>
 
         </View>
 
@@ -246,6 +267,12 @@ export default function App() {
 
       case 'Serviços':
         return <Servicos />;
+
+case 'Agendamento':
+  return <Agendamento />;
+
+case 'Orcamento':
+  return <Orcamento />;
 
       default:
         return <Home />;
@@ -494,5 +521,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
-
+  
+  botaoAgendamento: {
+  backgroundColor: '#001f94',
+  padding: 16,
+  borderRadius: 10,
+  alignItems: 'center',
+  width: '90%',
+  marginTop: 12,
+},
 });
